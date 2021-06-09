@@ -91,7 +91,7 @@ shinyServer(function(input, output,session) {
            command=paste0("x=sample(",vals, ", size=n, replace=TRUE, prob=", probs,")")
        }     
        if(input$distribution=="R Code") {
-          command=strsplit(input$C,";")[[1]]
+          command=input$RCode
        }
        if(input$distribution=="Bivariate Normal") {
            library(mvtnorm)

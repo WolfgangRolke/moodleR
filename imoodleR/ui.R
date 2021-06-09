@@ -27,9 +27,9 @@ shinyUI(fluidPage(
   titlePanel("MoodleR"),
   radioButtons("dtl", "Detailed Explanations", choices=c("No", "Yes"), inline = TRUE),
   fluidRow(
-    column(3, textInput("quizname","Name of Quiz / File ", value="testfun", placeholder = " Quiz 1")),
-    column(3, textInput("category","Category", value="top/bottom", placeholder=" top /  middle / bottom")),
-    column(2, textInput("numquiz","Quizzes", value="2", width="50%")),
+    column(3, textInput("quizname","Name of Quiz / File ",  placeholder = " Quiz 1")),
+    column(3, textInput("category","Category", placeholder=" top /  middle / bottom")),
+    column(2, textInput("numquiz","Quizzes", value="25", width="50%")),
     column(4, textInput("folder","Folder for Files", placeholder="Working Directory"))
   ),
   conditionalPanel( condition = "input.dtl == 'Yes'",
@@ -55,32 +55,32 @@ shinyUI(fluidPage(
         column(2, textInput("Dto", "To", placeholder="10,20,1"))
      ),
      conditionalPanel( condition = "input.distribution == 'Uniform'",     
-        column(2, textInput("Ufrom", "From", placeholder="0,1,0.1", width = "50%")),
-        column(2, textInput("Uto", "To", placeholder="1,2,0.1", width = "50%"))
+        column(2, textInput("Ufrom", "From", placeholder="0,1,0.1", width = "100%")),
+        column(2, textInput("Uto", "To", placeholder="1,2,0.1", width = "100%"))
      ),
      conditionalPanel( condition = "input.distribution == 'Normal'",     
-        column(2, textInput("Nmean", "Mean", placeholder="90,110,1", width = "50%")),
-        column(2, textInput("Nstd", "Std", placeholder="9,11,0.1", width = "50%"))
+        column(2, textInput("Nmean", "Mean", placeholder="90,110,1", width = "100%")),
+        column(2, textInput("Nstd", "Std", placeholder="9,11,0.1", width = "100%"))
      ),
      conditionalPanel( condition = "input.distribution == 'Beta'",     
-        column(2, textInput("Balpha", "alpha", value="1", width = "50%")),
-        column(2, textInput("Bbeta", "beta", value="1", width = "50%"))
+        column(2, textInput("Balpha", "alpha", placeholder="1, 2, 0.1", width = "100%")),
+        column(2, textInput("Bbeta", "beta", placeholder="1, 2, 0.1", width = "100%"))
      ),
      conditionalPanel( condition = "input.distribution == 'Gamma'",     
-        column(2, textInput("Galpha", "alpha", value="1", width = "50%")),
-        column(2, textInput("Gbeta", "beta", value="1", width = "50%"))
+        column(2, textInput("Galpha", "alpha",placeholder="1, 2, 0.1", width = "100%")),
+        column(2, textInput("Gbeta", "beta",  placeholder="1, 2, 0.1", width = "100%"))
      ),
      conditionalPanel( condition = "input.distribution == 'Categorical Variable'",     
         column(2, textInput("Cval", "Values", placeholder="A,B,C")),
-        column(2, textInput("Cp", "Relative Frequencies", placeholder="1,3,1"))
+        column(2, textInput("Cp", "Relative Frequencies", placeholder="1, 3, 1"))
      ),
      conditionalPanel( condition = "input.distribution == 'R Code'",     
-        column(12,  textAreaInput("C", "Code", placeholder="Write R code, separate commands by \";\" Data should be called x"))
+        column(12, textAreaInput("RCode", "Code", placeholder="Write your R code, data should be called x", height="200px", width="600px"))
      ),
      conditionalPanel( condition = "input.distribution == 'Bivariate Normal'",        
         column(2, textInput("BNnames", "Variable Names", placeholder="Age,Height")),
-        column(2, textInput("BNmeans", "Means", placeholder="100,100", width = "50%")),
-        column(2, textInput("BNstds", "Stds", placeholder="10,10", width = "50%")),
+        column(2, textInput("BNmeans", "Means", placeholder="100, 100", width = "50%")),
+        column(2, textInput("BNstds", "Stds", placeholder="10, 10", width = "50%")),
         column(2, textInput("BNcor", "Correlation", placeholder="0.5", width = "50%"))
      )
    ),
