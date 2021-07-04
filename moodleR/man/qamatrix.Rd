@@ -4,16 +4,26 @@
 \alias{qamatrix}
 \title{qamatrix}
 \usage{
-qamatrix(tbl)
+qamatrix(tbl, points = 100, precision = 0, before, after)
 }
 \arguments{
 \item{tbl}{a matrix}
+
+\item{points}{Points for correct answers}
+
+\item{precision}{required}
+
+\item{before}{text that appears before question}
+
+\item{after}{text that appears after question}
 }
 \description{
 This function takes a matrix and generates the html code for questions and answers in a
 moodel quiz
 }
 \examples{
-qamatrix(x)
+p=matrix(1:6,2,3)
+qamatrix(p)
+qamatrix(p, c(100,80), c(0,0.1))
 }
 \keyword{moodle}
